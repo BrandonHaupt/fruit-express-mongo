@@ -16,6 +16,8 @@ mongoose.connection.on('open', () => {
       ]
       
       // Delete all fruits
+      // to be able to seed, do 
+      // node models/seeds.js
       Fruit.deleteMany({}, (err, data) => {
         // Create new fruits once old fruits are deleted
         Fruit.create(startingFruits, (err, data) =>{
