@@ -19,9 +19,20 @@ router.get("/signup", (req, res) => {
     res.render("user/signup.ejs")
 })
 
-router.post("/signup", (req, res) => {
-    res.send("signup")
+
+router.post("/signup", async (req, res) => {
+    // encrypt password
+    req.body.password = await bcrypt.hash(req.body.password, await bcrypt.genSalt(10))
+    // create the new user
+    User.create(req.body, (err, user) => {
+        //redirect to login page
+        res.redirect("/user/login")
+    })
 })
+
+// router.post("/signup", (req, res) => {
+//     res.send("signup")
+// })
 
 // The login Routes (Get => form, post => submit form)
 router.get("/login", (req, res) => {
@@ -29,7 +40,7 @@ router.get("/login", (req, res) => {
 })
 
 router.post("/login", (req, res) => {
-    res.send("login")
+    res.redirect('/fruits')
 })
 
 ///////////////////////////
