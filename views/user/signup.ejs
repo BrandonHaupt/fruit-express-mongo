@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+        <div>
+            <form action="/user/signup" method="post">
+                <fieldset>
+                    <legend>
+                        <h2>New User</h2>
+                    </legend>
+                    <label>
+                        USERNAME: <input type="text" name="username" required />
+                    </label>
+                    <label>
+                        PASSWORD: <input type="text" name="password" required />
+                    </label>
+                    <input type="submit" value="Create Account">
+                </fieldset>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
