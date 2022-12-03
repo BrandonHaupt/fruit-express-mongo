@@ -20,7 +20,8 @@ mongoose.connection.on('open', () => {
         // Create new fruits once old fruits are deleted
         Fruit.create(startingFruits, (err, data) =>{
 
-            console.log(data)
+          console.log(data)
+          mongoose.connection.close()
             
         })
 
